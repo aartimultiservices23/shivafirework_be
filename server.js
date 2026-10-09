@@ -15,8 +15,15 @@ const authRoutes = require('./routes/authRoutes');
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://fireworks-fe-six.vercel.app',
+    'https://shivasfireworks.in',
+    'https://www.shivasfireworks.in'
+];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: allowedOrigins,
     credentials: true,
 }));
 app.use(cookieParser());
